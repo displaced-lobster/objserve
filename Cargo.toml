@@ -1,0 +1,27 @@
+[package]
+name = "objserve"
+version = "0.1.0"
+edition = "2021"
+default-run = "server"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+axum = "0.6"
+dotenv = "0.15.0"
+serde = { version = "1.0", features = ["derive"] }
+sqlx = { version = "0.5.10", features = ["runtime-tokio-native-tls", "sqlite"] }
+tokio = { version = "1.0", features = ["full"] }
+tower-http = { version = "0.3.0", features = ["cors", "fs"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+walkdir = "2.3"
+
+[[bin]]
+name = "server"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "scan"
+path = "src/bin/scan.rs"
