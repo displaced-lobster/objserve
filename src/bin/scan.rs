@@ -31,7 +31,7 @@ async fn main() -> anyhow::Result<()> {
                 .to_str()
                 .unwrap()
                 .replace(&file_prefix, "");
-            let name = src.replace("/", " - ");
+            let name = src.replace('/', " - ");
             let collection = {
                 if entry.depth() == 1 {
                     None

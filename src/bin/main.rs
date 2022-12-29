@@ -16,7 +16,7 @@ async fn main() -> anyhow::Result<()> {
 
     let pool = SqlitePool::connect(&env::var("DATABASE_URL")?).await?;
     let serve_dir =
-        get_service(ServeDir::new(&env::var("OBJ_PATH")?)).handle_error(errors::handle_error);
+        get_service(ServeDir::new(env::var("OBJ_PATH")?)).handle_error(errors::handle_error);
 
     let app = Router::new()
         .route("/collections", get(collections::routes::collections))
